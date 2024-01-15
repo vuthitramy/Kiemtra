@@ -1,6 +1,8 @@
 package com.example.baikiemtramonbe.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "city")
@@ -8,10 +10,12 @@ public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank(message = "Ban phai nhap ten")
     private String name;
     private String nation;
     private int acreage;
     private int population;
+    @Min(value = 10, message = "Ban phai nhap GDP >10")
     private int gdp;
     private String describee;
     public City(){}
